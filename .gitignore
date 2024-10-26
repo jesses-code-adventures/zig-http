@@ -1,0 +1,4 @@
+.zig-cache/
+main
+main.o
+zig-out/
