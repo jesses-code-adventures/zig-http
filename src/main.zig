@@ -1,12 +1,8 @@
 const std = @import("std");
 const stdout = std.io.getStdOut().writer();
-const request = @import("request/mod.zig");
+const server = @import("server/mod.zig");
 
-pub fn main() void {
-    const req = request.Request{
-        .headers = undefined,
-        .body = "hello!",
-    };
-    stdout.print("request body: {s}\n", .{req.body}) catch {};
+pub fn main() !void {
+    var s = try server.Server.init();
+    try s.serve();
 }
-
